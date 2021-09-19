@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cuenta;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -42,5 +43,22 @@ class DatabaseSeeder extends Seeder
             'int_identificacion' => '18882736621',
             'str_password' => Hash::make('1899')
         ]);
+
+        $users = User::all();
+
+        foreach ($users as $user) {
+            Cuenta::create([
+                'int_cuenta' => rand(111111111111, 999999999999),
+                'int_user_id' => $user->id,
+                'int_saldo' => 1000000
+            ]);
+
+            Cuenta::create([
+                'int_cuenta' => rand(111111111111, 999999999999),
+                'int_user_id' => $user->id,
+                'int_saldo' => 1000000
+            ]);
+        }
+
     }
 }

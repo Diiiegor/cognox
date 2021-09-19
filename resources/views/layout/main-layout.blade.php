@@ -22,6 +22,7 @@
 
     <header class="header">
         <ul class="header_list">
+            <li><a class="nav_link" href=""> <i class="fas fa-home"></i> &nbsp; Inicio</a></li>
             <li><a class="nav_link" href=""> <i class="fas fa-compress-alt"></i> &nbsp; Transacciones bancarias</a></li>
             <li><a class="nav_link" href=""><i class="fas fa-tachometer-alt"></i> &nbsp; Estado de cuenta</a></li>
             <li>
@@ -36,9 +37,9 @@
     </header>
 
 
-    <div class="content">
+    <section>
         @yield('content')
-    </div>
+    </section>
 
 </div>
 <script src="https://kit.fontawesome.com/336ef094a4.js" crossorigin="anonymous"></script>

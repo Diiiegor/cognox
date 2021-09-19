@@ -23,7 +23,7 @@ class AuthController extends Controller
 
     public function authenticate(LoginRequest $request)
     {
-        if ($this->authService->checkUser($request)) {
+        if ($this->authService->authenticate($request)) {
             return redirect('/');
         }
 

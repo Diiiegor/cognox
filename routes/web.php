@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use \App\Http\Controllers\AuthController;
+use \App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +17,12 @@ use \App\Http\Controllers\AuthController;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::view('/', 'home');
+    Route::get('/', [HomeController::class, 'home']);
 });
 
 
 Route::prefix('auth')->group(function () {
-    Route::view('login','auth.login')->name('login');
+    Route::view('login', 'auth.login')->name('login');
     Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

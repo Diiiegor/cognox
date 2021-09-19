@@ -47,4 +47,9 @@ class User extends Authenticatable
         return $this->str_password;
     }
 
+    public function cuentas()
+    {
+        return $this->hasMany(Cuenta::class, 'int_user_id', 'id');
+    }
+
 }
