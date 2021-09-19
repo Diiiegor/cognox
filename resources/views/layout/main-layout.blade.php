@@ -22,8 +22,9 @@
 
     <header class="header">
         <ul class="header_list">
-            <li><a class="nav_link" href=""> <i class="fas fa-home"></i> &nbsp; Inicio</a></li>
-            <li><a class="nav_link" href=""> <i class="fas fa-compress-alt"></i> &nbsp; Transacciones bancarias</a></li>
+            <li><a class="nav_link" href="{{route('home')}}"> <i class="fas fa-home"></i> &nbsp; Inicio</a></li>
+            <li><a class="nav_link" href="{{route('transacciones.home')}}"> <i class="fas fa-compress-alt"></i> &nbsp;
+                    Transacciones bancarias</a></li>
             <li><a class="nav_link" href=""><i class="fas fa-tachometer-alt"></i> &nbsp; Estado de cuenta</a></li>
             <li>
                 <a class="nav_link" href=""
@@ -39,6 +40,9 @@
 
     <section>
         @yield('content')
+        <div id="ajaxScreens">
+
+        </div>
     </section>
 
 </div>

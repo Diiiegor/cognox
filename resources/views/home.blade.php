@@ -1,8 +1,7 @@
 @extends('layout.main-layout')
 @section('content')
     <div class="flex">
-        <p class="subtitle">Inicio</p>
-        <p class="title">&nbsp; > &nbsp;Cuentas asociadas</p>
+        <p class="title">&nbsp;Cuentas inscritas</p>
     </div>
     <div class="content">
         <p class="subtitle">Cuentas propias</p>
@@ -24,6 +23,5 @@
             @endforeach
             </tbody>
         </table>
-        <p class="subtitle mt-40">Cuentas de terceros</p>
     </div>
 @endsection

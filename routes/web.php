@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\TransaccionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,14 @@ use \App\Http\Controllers\HomeController;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [HomeController::class, 'home']);
+    Route::get('/', [HomeController::class, 'home'])->name('home');
+
+    Route::prefix('transacciones')->group(function () {
+        Route::view('home', 'transacciones.home')->name('transacciones.home');
+        Route::get('propias', [TransaccionController::class, 'nuevaTransferencia'])->name('transacciones.propias');
+        Route::get('terceros')->name('transacciones.terceros');
+    });
+
 });
 
 

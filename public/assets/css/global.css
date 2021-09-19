@@ -91,7 +91,8 @@ label.error {
 .header {
     width: 100%;
     background: #4A65FA;
-    border-radius: 10px;
+    border-radius: 50px;
+    padding: 15px 0px;
     display: flex;
     -webkit-box-shadow: 5px 5px 15px -7px rgba(0, 0, 0, 0.15);
     box-shadow: 5px 5px 15px -7px rgba(0, 0, 0, 0.15);
@@ -178,4 +179,28 @@ section > div > .title {
 
 .text-primary {
     color: #4A65FA;
+}
+
+
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-header__buttons {
+    display: flex;
+    width: 30%;
+}
+
+.form-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-center {
+    width: 60%;
 }
