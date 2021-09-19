@@ -1,0 +1,66 @@
+body, html {
+    padding: 0px;
+    margin: 0px;
+}
+
+* {
+    font-family: 'Nunito';
+}
+
+.fondo {
+    width: 100%;
+    height: 100vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.login-box {
+    width: 20%;
+    background: white;
+    border-radius: 20px;
+    -webkit-box-shadow: 1px 3px 15px -4px #4A65FA;
+    box-shadow: 1px 3px 15px -4px #4A65FA;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.title {
+    margin: 0px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.subtitle {
+    font-weight: bold;
+    font-size: 20px;
+    color: #4A65FA;
+    margin: 0px;
+
+}
+
+.error-box {
+    background: rgba(255, 0, 0, 0.7);
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 20px;
+    border-radius: 15px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
