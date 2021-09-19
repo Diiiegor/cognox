@@ -48,6 +48,9 @@
 </div>
 <script src="https://kit.fontawesome.com/336ef094a4.js" crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{asset('assets/js/jquery.js')}}"></script>
+<script src="{{asset('assets/js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('assets/js/messages_es.js')}}"></script>
 <script src="{{asset('assets/js/global.js')}}"></script>
 @yield('scripts')
 </body>

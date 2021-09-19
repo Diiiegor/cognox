@@ -11,4 +11,10 @@ class CuentasRepository
     {
         return Auth::user()->cuentas()->get();
     }
+
+    public function findOne($filter)
+    {
+        return Cuenta::where($filter)->first();
+    }
+
 }

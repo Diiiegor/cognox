@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\CuentasRepository;
+use App\Services\TransferenciaService;
 use Illuminate\Http\Request;
 
 class TransaccionController extends Controller
 {
     private $cuentasRepository;
+    private $transferenciaService;
 
-    public function __construct(CuentasRepository $cuentasRepository)
+    public function __construct(CuentasRepository $cuentasRepository, TransferenciaService $transferenciaService)
     {
         $this->cuentasRepository = $cuentasRepository;
+        $this->transferenciaService = $transferenciaService;
     }
 
     public function nuevaTransferencia()
@@ -20,4 +23,16 @@ class TransaccionController extends Controller
         $cuentasDestino = $cuentasOrigen;
         return view('transacciones.propias', compact('cuentasOrigen', 'cuentasDestino'));
     }
+
+
+    public function transferir(Request $request)
+    {
+        $errors = $this->transferenciaService->validarTransferenciaACuentaPropia($request);
+        if (count($errors) > 0) {
+            return response(['ok' => false, 'errors' => $errors], 400);
+        } else {
+
+        }
+    }
+
 }

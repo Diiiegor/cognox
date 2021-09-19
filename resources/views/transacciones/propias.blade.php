@@ -5,7 +5,10 @@
 
     <div class="form-box">
         <div class="form-center mt-30">
-            <form action="">
+            <form action="{{route('transacciones.transferir')}}" onsubmit="registrarTransferenciaPropia();return false"
+                  id="formTransferenciaPropia"
+                  method="post">
+                @csrf
                 <select required class="input" name="cuentaOrigen" id="cuentaOrigen">
                     <option value="">Seleccione una cuenta origen</option>
                     @foreach($cuentasOrigen as $cuenta)
@@ -20,9 +23,10 @@
                     @endforeach
                 </select>
 
-                <input required placeholder="Monto a transferir" class="input" type="number" name="monto" id="monto">
+                <input min="1" required placeholder="Monto a transferir" class="input" type="number" name="monto"
+                       id="monto">
 
-                <button class="btn btn-primary mt-10">
+                <button id="btnTransferenciaPropia" type="submit" class="btn btn-primary mt-10">
                     Transferir
                 </button>
             </form>
@@ -30,3 +34,4 @@
     </div>
 
 </div>
+
