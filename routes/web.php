@@ -16,13 +16,12 @@ use \App\Http\Controllers\AuthController;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::view('/', 'home');
 });
 
 
 Route::prefix('auth')->group(function () {
-    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::view('login','auth.login')->name('login');
     Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

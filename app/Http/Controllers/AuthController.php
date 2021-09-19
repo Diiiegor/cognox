@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Services\AuthService;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -15,9 +14,10 @@ class AuthController extends Controller
         $this->authService = $authService;
     }
 
-    public function login()
+    public function logout()
     {
-        return view('auth.login');
+        $this->authService->logout();
+        return redirect()->route('login');
     }
 
 
