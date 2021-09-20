@@ -8,10 +8,12 @@
             <p class="subtitle">Realizar transacción</p>
             <div class="content-header__buttons">
                 <button id="btnCuentasPropias" class="btn btn-primary"
-                        onclick="transCuentasPropias('{{route('transacciones.propias')}}')">
+                        onclick="nuevaTransaccion('{{route('transacciones.propias')}}','btnCuentasPropias','Cuentas propias')">
                     Cuentas propias
                 </button>
-                <button class="btn btn-primary">
+                &nbsp;
+                <button id="btnCuentasTerceros" class="btn btn-primary-outline"
+                        onclick="nuevaTransaccion('{{route('transacciones.terceros')}}','btnCuentasTerceros','Cuentas de terceros')">
                     Cuentas de terceros
                 </button>
             </div>

@@ -23,7 +23,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('transacciones')->group(function () {
         Route::view('home', 'transacciones.home')->name('transacciones.home');
         Route::get('propias', [TransaccionController::class, 'nuevaTransferencia'])->name('transacciones.propias');
-        Route::get('terceros')->name('transacciones.terceros');
+        Route::get('terceros',[TransaccionController::class,'nuevaTransferenciaTerceros'])->name('transacciones.terceros');
         Route::post('transferir',[TransaccionController::class,'transferir'])->name('transacciones.transferir');
     });
 

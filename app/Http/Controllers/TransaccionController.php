@@ -24,6 +24,13 @@ class TransaccionController extends Controller
         return view('transacciones.propias', compact('cuentasOrigen', 'cuentasDestino'));
     }
 
+    public function nuevaTransferenciaTerceros()
+    {
+        $cuentasOrigen = $this->cuentasRepository->cuentasPropias();
+        $cuentasDestino = $this->cuentasRepository->cuentasTerceros();
+        return view('transacciones.terceros', compact('cuentasOrigen', 'cuentasDestino'));
+    }
+
 
     public function transferir(Request $request)
     {

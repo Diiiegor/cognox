@@ -1,12 +1,12 @@
 //Trae y renderiza la vista para realizar una transferencia a una cuenta nueva
-const transCuentasPropias = async (route) => {
-    buttonState(true, 'Cuentas propias', 'btnCuentasPropias')
+const nuevaTransaccion = async (route, idButton, buttonText) => {
+    buttonState(true, buttonText, idButton)
 
     const screen = await fetch(route).then(resp => resp.text())
     document.getElementById('ajaxScreens').innerHTML = screen;
     validarFormularioCuentasPropias()
 
-    buttonState(false, 'Cuentas propias', 'btnCuentasPropias')
+    buttonState(false, buttonText, idButton)
 }
 
 

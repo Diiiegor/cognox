@@ -16,6 +16,7 @@ class HomeController extends Controller
     public function home()
     {
         $cuentasPropias = $this->cuentasRepository->cuentasPropias();
-        return view('home', compact('cuentasPropias'));
+        $cuentasTerceros = $this->cuentasRepository->cuentasTerceros();
+        return view('home', compact('cuentasPropias', 'cuentasTerceros'));
     }
 }

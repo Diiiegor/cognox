@@ -73,6 +73,14 @@ body, html {
     letter-spacing: 2px;
 }
 
+.btn-primary-outline{
+    background: white;
+    color: #4A65FA;
+    border-color: #4A65FA;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

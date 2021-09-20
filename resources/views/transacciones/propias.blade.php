@@ -14,7 +14,7 @@
     @if(count($cuentasOrigen) ==0)
         <div class="error-box">
             <ul>
-                <li></li>
+                <li>No tienes ninguna cuenta inscrita para realizar transferencias</li>
             </ul>
         </div>
     @endif
