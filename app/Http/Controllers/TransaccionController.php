@@ -31,7 +31,8 @@ class TransaccionController extends Controller
         if (count($errors) > 0) {
             return response(['ok' => false, 'errors' => $errors], 400);
         } else {
-
+            $transaccion = $this->transferenciaService->transferir($request->cuentaOrigen, $request->cuentaDestino, $request->monto);
+            return response(['ok' => true, 'transaccion' => $transaccion], 200);
         }
     }
 

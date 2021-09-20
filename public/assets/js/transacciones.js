@@ -39,6 +39,8 @@ const registrarTransferenciaPropia = async () => {
 
         if (!resp.ok) {
             showErrosDialog(resp.errors)
+        } else {
+            showTransaccionCorrecta(resp.transaccion);
         }
 
 
@@ -69,5 +71,16 @@ const showErrosDialog = (errors) => {
         html: `<ul>${errorMsgs.join('')}</ul>`,
         confirmButtonColor: '#F27474',
         confirmButtonText: 'Cerrar'
+    })
+}
+
+
+const showTransaccionCorrecta = (codigo) => {
+    Swal.fire({
+        title: 'Transferencia exitosa',
+        icon: 'success',
+        html: `La transferencia con código <b>#${codigo}</b> se realizó correctamente`,
+        confirmButtonColor: '#4A65FA',
+        confirmButtonText: 'Aceptar'
     })
 }

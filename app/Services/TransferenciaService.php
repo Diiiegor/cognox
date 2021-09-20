@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use App\Models\Transaccion;
 use App\Repositories\CuentasRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransferenciaService
 {
@@ -30,6 +32,27 @@ class TransferenciaService
         }
 
         return $errors;
+    }
+
+
+    public function transferir($idOrige, $idDestino, $monto)
+    {
+        $cuentaOrigen = $this->cuentasRepository->findOne([['id', '=', $idOrige]]);
+        $cuentaDestino = $this->cuentasRepository->findOne([['id', '=', $idDestino]]);
+
+        $cuentaOrigen->int_saldo = $cuentaOrigen->int_saldo - $monto;
+        $cuentaDestino->int_saldo = $cuentaDestino->int_saldo + $monto;
+
+        $cuentaOrigen->save();
+        $cuentaDestino->save();
+
+        $transaccion = Transaccion::create([
+            'int_cuenta_origen' => $idOrige,
+            'int_cuenta_destino' => $idDestino,
+            'int_user_id' => Auth::user()->id,
+            'int_monto' => $monto
+        ]);
+        return $transaccion->id;
     }
 
 }
