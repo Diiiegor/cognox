@@ -73,7 +73,7 @@ body, html {
     letter-spacing: 2px;
 }
 
-.btn-primary-outline{
+.btn-primary-outline {
     background: white;
     color: #4A65FA;
     border-color: #4A65FA;
@@ -215,6 +215,15 @@ section > div > .title {
 
 .error-box {
     background: rgba(255, 0, 0, 0.7);
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 20px;
+    border-radius: 15px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.success-box {
+    background: rgba(92, 184, 92, 0.7);
     padding-top: 1px;
     padding-bottom: 1px;
     margin-top: 20px;

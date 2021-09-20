@@ -4,7 +4,20 @@
         <p class="title">&nbsp;Cuentas inscritas</p>
     </div>
     <div class="content">
+
+        @if ($message = Session::get('msg'))
+            <div class="success-box">
+                <ul>
+                    <li>{{$message}}</li>
+                </ul>
+            </div>
+        @endif
+
         <p class="subtitle">Cuentas propias</p>
+        <a href="{{route('cuentas.crear')}}">
+            <p>Inscribir cuenta propia</p>
+        </a>
+
         <table class="table">
             <thead>
             <tr>
@@ -28,6 +41,9 @@
 
     <div class="content">
         <p class="subtitle">Cuentas de terceros</p>
+        <a href="{{route('cuentas.inscribir')}}">
+            <p>Inscribir cuenta de un tercero</p>
+        </a>
         <table class="table">
             <thead>
             <tr>

@@ -23,4 +23,13 @@ class CuentasRepository
         return CuentaInscrita::where('int_id_usuario', Auth::user()->id)->with('cuenta')->get();
     }
 
+    public function store($cuenta, $saldo, $user)
+    {
+        return Cuenta::create([
+            'int_cuenta' => $cuenta,
+            'int_user_id' => $user,
+            'int_saldo' => $saldo
+        ]);
+    }
+
 }
