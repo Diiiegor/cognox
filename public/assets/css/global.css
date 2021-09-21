@@ -230,3 +230,7 @@ section > div > .title {
     border-radius: 15px;
     color: rgba(0, 0, 0, 0.5);
 }
+
+.dataTables_filter {
+    display: none;
+}

@@ -6,6 +6,9 @@ use App\Models\Transaccion;
 use App\Repositories\CuentasRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Contracts\DataTable;
+use Yajra\DataTables\Facades\DataTables;
 
 class TransferenciaService
 {
@@ -53,6 +56,26 @@ class TransferenciaService
             'int_monto' => $monto
         ]);
         return $transaccion->id;
+    }
+
+    public function transferenciasDatatable(Request $request)
+    {
+
+        $query = DB::table('transacciones')
+            ->join('cuentas as origen', 'transacciones.int_cuenta_origen', '=', 'origen.id')
+            ->join('cuentas as destino', 'transacciones.int_cuenta_destino', '=', 'destino.id')
+            ->where('transacciones.int_user_id', '=', Auth::user()->id)
+            ->select([
+                'transacciones.int_monto',
+                'transacciones.created_at',
+                'origen.int_cuenta as origen',
+                'destino.int_cuenta as destino'
+            ]);
+
+
+
+        return DataTables::query($query)->toJson();
+
     }
 
 }

@@ -16,4 +16,15 @@ class Transaccion extends Model
         'int_user_id',
         'int_monto'
     ];
+
+    public function cuentaOrigen()
+    {
+        return $this->hasOne(Cuenta::class, 'id', 'int_cuenta_origen');
+    }
+
+    public function cuentaDestino()
+    {
+        return $this->hasOne(Cuenta::class, 'id', 'int_cuenta_destino');
+    }
+
 }

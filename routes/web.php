@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('propias', [TransaccionController::class, 'nuevaTransferencia'])->name('transacciones.propias');
         Route::get('terceros', [TransaccionController::class, 'nuevaTransferenciaTerceros'])->name('transacciones.terceros');
         Route::post('transferir', [TransaccionController::class, 'transferir'])->name('transacciones.transferir');
+        Route::get('datatable', [TransaccionController::class, 'datatable'])->name('transacciones.datatable');
     });
 
 });

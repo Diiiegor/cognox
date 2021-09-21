@@ -82,5 +82,29 @@ const showTransaccionCorrecta = (codigo) => {
         html: `La transferencia con código <b>#${codigo}</b> se realizó correctamente`,
         confirmButtonColor: '#4A65FA',
         confirmButtonText: 'Aceptar'
-    })
+    }).then(r=>location.reload())
 }
+
+
+
+const datatable = $('#tableTransacciones').DataTable({
+    processing: true,
+    serverSide: true,
+    "responsive": true,
+    ajax: $('#tableRoute').val(),
+    language: {
+        url: '//cdn.datatables.net/plug-ins/1.11.2/i18n/es_es.json'
+    },
+    columns: [
+        {data: 'origen', name: 'origen.int_cuenta',searchable:true},
+        {data: 'destino', name: 'destino.int_cuenta',searchable:true},
+        {data: 'int_monto', name: 'int_monto',searchable:false},
+        {data: 'created_at', name: 'created_at',searchable:false},
+    ],
+
+});
+
+$('.filter_input').keyup(function () {
+    datatable.column($(this).data('column')).search($(this).val()).draw()
+})
+

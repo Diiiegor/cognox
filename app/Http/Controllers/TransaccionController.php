@@ -43,4 +43,9 @@ class TransaccionController extends Controller
         }
     }
 
+    public function datatable(Request $request)
+    {
+        return $this->transferenciaService->transferenciasDatatable($request);
+    }
+
 }
