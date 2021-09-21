@@ -34,7 +34,7 @@ class TransaccionController extends Controller
 
     public function transferir(Request $request)
     {
-        $errors = $this->transferenciaService->validarTransferenciaACuentaPropia($request);
+        $errors = $this->transferenciaService->validarTransferencia($request);
         if (count($errors) > 0) {
             return response(['ok' => false, 'errors' => $errors], 400);
         } else {

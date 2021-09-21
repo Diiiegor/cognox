@@ -17,7 +17,7 @@ class TransferenciaService
 
     }
 
-    public function validarTransferenciaACuentaPropia(Request $request): array
+    public function validarTransferencia(Request $request): array
     {
         $errors = [];
         $cuentaOrigen = $this->cuentasRepository->findOne([['id', '=', $request->cuentaOrigen]]);
