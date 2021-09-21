@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Http\Requests\CuentaRequest;
 use App\Repositories\CuentasRepository;
 use Illuminate\Support\Facades\Auth;
-use PHPUnit\Exception;
 
 class CuentasService
 {
@@ -25,6 +24,22 @@ class CuentasService
         } catch (\Exception $e) {
             return false;
         }
+    }
+
+    public function validarExistencia($cuenta)
+    {
+        $cuenta = $this->cuentasRepository->findOne([['int_cuenta', '=', $cuenta]]);
+        if ($cuenta == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function inscribir($cuenta, $estado, $usrId)
+    {
+        $cuentaDb = $this->cuentasRepository->findOne([['int_cuenta', '=', $cuenta]]);
+        return $this->cuentasRepository->inscribir($cuentaDb->id, $estado, $usrId);
     }
 
 }

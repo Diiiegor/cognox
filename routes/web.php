@@ -23,8 +23,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('cuentas')->group(function () {
         Route::view('crear', 'cuentas.crear')->name('cuentas.crear');
-        Route::post('store', [CuentasController::class,'store'])->name('cuentas.store');
-        Route::get('inscribir')->name('cuentas.inscribir');
+        Route::post('store', [CuentasController::class, 'store'])->name('cuentas.store');
+        Route::view('inscribir', 'cuentas.inscribir')->name('cuentas.inscribir');
+        Route::post('guardarinscripcion',[CuentasController::class,'guardarinscripcion'])->name('cuentas.guardarinscripcion');
     });
 
     Route::prefix('transacciones')->group(function () {

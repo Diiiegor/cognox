@@ -5,7 +5,7 @@
     </div>
     <div class="content">
 
-        @if ($message = Session::get('msg'))
+        @if ($message = Session::get('cuentaCreada'))
             <div class="success-box">
                 <ul>
                     <li>{{$message}}</li>
@@ -40,6 +40,15 @@
 
 
     <div class="content">
+
+        @if ($message = Session::get('cuentaInscrita'))
+            <div class="success-box">
+                <ul>
+                    <li>{{$message}}</li>
+                </ul>
+            </div>
+        @endif
+
         <p class="subtitle">Cuentas de terceros</p>
         <a href="{{route('cuentas.inscribir')}}">
             <p>Inscribir cuenta de un tercero</p>
@@ -63,5 +72,6 @@
             </tbody>
         </table>
     </div>
+    <div class="mt-50"></div>
 
 @endsection

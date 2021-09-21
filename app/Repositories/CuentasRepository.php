@@ -32,4 +32,13 @@ class CuentasRepository
         ]);
     }
 
+    public function inscribir($cuentaId, $estado, $usuario)
+    {
+        return CuentaInscrita::create([
+            'int_id_cuenta' => $cuentaId,
+            'int_id_usuario' => $usuario,
+            'int_activa' => $estado
+        ]);
+    }
+
 }
