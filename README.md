@@ -30,14 +30,13 @@ El proyecto trae algunos usuarios de prueba generados, cada usuario trae 2 cuent
 
 ## Instalación
 
-Instalar dependencias y correr migraciones de base de datos
+Instalar dependencias del proyecto
 
 ```sh
 git clone https://github.com/Diiiegor/cognox.git
 cd cognox
 composer install
 php artisan key:generate
-php artisan migrate:fresh --seed
 ```
 
 Variables de entorno: se debe crear una base de datos MySQL e igualar la variable de entorno DB_DATABASE al nombre de la base de datos previamente creada, en mi caso la base de datos se llama cognox
@@ -51,6 +50,11 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
+
+Luego de configurar las variables de entorno en el archivo .env se debe ejecutar el comando para correr las migraciones de base de datos
+```sh
+php artisan migrate:fresh --seed
+```
 
 
 
