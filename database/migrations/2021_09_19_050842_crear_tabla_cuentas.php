@@ -19,6 +19,7 @@ class CrearTablaCuentas extends Migration
             $table->unsignedBigInteger('int_user_id');
             $table->foreign('int_user_id')->references('id')->on('users');
             $table->double('int_saldo');
+            $table->integer('int_activa')->default(1);
             $table->timestamps();
         });
     }

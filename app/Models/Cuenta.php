@@ -14,6 +14,7 @@ class Cuenta extends Model
         'int_cuenta',
         'int_user_id',
         'int_saldo',
+        'int_activa',
     ];
 
     public function getCreatedAtAttribute()

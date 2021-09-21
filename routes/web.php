@@ -27,8 +27,15 @@ Route::middleware(['auth'])->group(function () {
         Route::view('crear', 'cuentas.crear')->name('cuentas.crear');
         Route::post('store', [CuentasController::class, 'store'])->name('cuentas.store');
         Route::view('inscribir', 'cuentas.inscribir')->name('cuentas.inscribir');
-        Route::post('guardarinscripcion',[CuentasController::class,'guardarinscripcion'])->name('cuentas.guardarinscripcion');
-        Route::get('estado',[CuentasController::class,'estado'])->name('cuentas.estado');
+        Route::post('guardarinscripcion', [CuentasController::class, 'guardarinscripcion'])->name('cuentas.guardarinscripcion');
+        Route::get('estado', [CuentasController::class, 'estado'])->name('cuentas.estado');
+        Route::put('activar/{id}',[CuentasController::class,'activar'])->name('cuentas.activar');
+        Route::put('inactivar/{id}',[CuentasController::class,'inactivar'])->name('cuentas.inactivar');
+    });
+
+    Route::prefix('terceros')->group(function () {
+        Route::put('activar/{id}',[CuentasController::class,'activarTerceros'])->name('terceros.activar');
+        Route::put('inactivar/{id}',[CuentasController::class,'inactivarTerceros'])->name('terceros.inactivar');
     });
 
     Route::prefix('transacciones')->group(function () {

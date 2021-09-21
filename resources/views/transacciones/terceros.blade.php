@@ -23,14 +23,14 @@
                     <select required class="input" name="cuentaOrigen" id="cuentaOrigen">
                         <option value="">Seleccione una cuenta origen</option>
                         @foreach($cuentasOrigen as $cuenta)
-                            <option value="{{$cuenta->id}}">{{$cuenta->int_cuenta}}</option>
+                            <option {{$cuenta->int_activa ==0?'disabled':''}} value="{{$cuenta->id}}">{{$cuenta->int_cuenta}}</option>
                         @endforeach
                     </select>
 
                     <select required class="input" name="cuentaDestino" id="cuentaDestino">
                         <option value="">Seleccione una cuenta destino</option>
                         @foreach($cuentasDestino as $cuenta)
-                            <option value="{{$cuenta->cuenta->id}}">{{$cuenta->cuenta->int_cuenta}}</option>
+                            <option {{$cuenta->int_activa ==0?'disabled':''}} value="{{$cuenta->cuenta->id}}">{{$cuenta->cuenta->int_cuenta}}</option>
                         @endforeach
                     </select>
 

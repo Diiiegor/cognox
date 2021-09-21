@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Http\Requests\CuentaRequest;
+use App\Models\Cuenta;
+use App\Models\CuentaInscrita;
 use App\Repositories\CuentasRepository;
 use App\Repositories\TransaccionesRepository;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +55,16 @@ class CuentasService
         }
 
         return $cuentasPropias;
+    }
+
+    public function cambiarEstado($id, $estado)
+    {
+        Cuenta::find($id)->update(['int_activa' => $estado]);
+    }
+
+    public function cambiarEstadoTerceros($id, $estado)
+    {
+        CuentaInscrita::find($id)->update(['int_activa' => $estado]);
     }
 
 }
