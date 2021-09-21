@@ -35,4 +35,10 @@ class CuentasController extends Controller
         }
     }
 
+    public function estado()
+    {
+        $estadoDeCuenta = $this->cuentasService->estadoDeCuentas();
+        return view('transacciones.estado', compact('estadoDeCuenta'));
+    }
+
 }

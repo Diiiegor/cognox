@@ -19,13 +19,16 @@ use \App\Http\Controllers\CuentasController;
 */
 
 Route::middleware(['auth'])->group(function () {
+
     Route::get('/', [HomeController::class, 'home'])->name('home');
+
 
     Route::prefix('cuentas')->group(function () {
         Route::view('crear', 'cuentas.crear')->name('cuentas.crear');
         Route::post('store', [CuentasController::class, 'store'])->name('cuentas.store');
         Route::view('inscribir', 'cuentas.inscribir')->name('cuentas.inscribir');
         Route::post('guardarinscripcion',[CuentasController::class,'guardarinscripcion'])->name('cuentas.guardarinscripcion');
+        Route::get('estado',[CuentasController::class,'estado'])->name('cuentas.estado');
     });
 
     Route::prefix('transacciones')->group(function () {

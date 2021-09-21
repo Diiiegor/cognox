@@ -4,16 +4,19 @@ namespace App\Services;
 
 use App\Http\Requests\CuentaRequest;
 use App\Repositories\CuentasRepository;
+use App\Repositories\TransaccionesRepository;
 use Illuminate\Support\Facades\Auth;
 
 class CuentasService
 {
 
     private $cuentasRepository;
+    private $transaccionesRepository;
 
     public function __construct()
     {
         $this->cuentasRepository = new CuentasRepository();
+        $this->transaccionesRepository = new TransaccionesRepository();
     }
 
     public function crear(CuentaRequest $request)
@@ -40,6 +43,16 @@ class CuentasService
     {
         $cuentaDb = $this->cuentasRepository->findOne([['int_cuenta', '=', $cuenta]]);
         return $this->cuentasRepository->inscribir($cuentaDb->id, $estado, $usrId);
+    }
+
+    public function estadoDeCuentas()
+    {
+        $cuentasPropias = $this->cuentasRepository->cuentasPropias();
+        foreach ($cuentasPropias as $index => $cuentaPropia) {
+            $cuentasPropias[$index]->estado = $this->transaccionesRepository->estadoDeCuenta($cuentaPropia->id);
+        }
+
+        return $cuentasPropias;
     }
 
 }
