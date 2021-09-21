@@ -36,6 +36,11 @@ Instalar dependencias del proyecto
 git clone https://github.com/Diiiegor/cognox.git
 cd cognox
 composer install
+```
+
+Creacion de archivo .env y generacion de clave. para esto copiamos el contenido del archivo .env.example a un nuevo archivo .env
+```sh
+cp .env.example .env
 php artisan key:generate
 ```
 
